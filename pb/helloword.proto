@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_outer_classname = "HelloWorldProto";
+
+// protoc  --php_out=./pb ./pb/helloword.proto
+package helloword;
+
+service Greeter {
+    rpc SayHello (HelloRequest) returns (HelloReply) {};
+    rpc Msg (MsgReq) returns (MsgRep) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+    string name = 1;
+   int32 age  = 2;
+}
+
+// The response message containing the greetings
+message HelloReply {
+    string message = 1;
+}
+
+message MsgReq {
+}
+
+message MsgRep {
+    string msg = 1;
+}
